@@ -1,0 +1,10 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  notebook:
+    container_name: remote-sense-notebook
+    build: .
+    ports:
+      - "8001:8888"
+    volumes:
+      - ./jupyter:/home/jovyan/work
+    command: jupyter notebook --ip='*' --NotebookApp.token='' --NotebookApp.password=''
